@@ -1,0 +1,260 @@
+# show system
+
+Hardware Model   : Apresia13200-48X-PSR
+MAC Address      : 00:40:66:aa:aa:aa
+Serial Number    : 111111111111
+CPU Rate(2sec, %): 7
+CPU Rate(1min, %): 10
+CPU Rate(5min, %): 8
+CPU Rate(max, %) : 34
+CPU Rate(min, %) : 0
+-------------------------------
+Notification threshold:
+  cpu-utilization(%)  : disable
+Health Status         : Normal(0x0)
+
+
+
+# show version
+
+System Revision          : 8.22.03
+System Date              : Fri Apr 25 10:35:16 2014
+System Booted from       : memory-card (hc-software)
+Configuration Booted with: memory-card (hc-flash-config)
+HCLoader Revision        : 3.00.10
+HCLoader Date            : Mon Mar 31 10:15:13 2014
+Compiled by              : compiler
+Hardware Revision        : 0
+
+Saved Version            :
+Primary System           : 8.22.03
+Secondary System         : 8.22.03
+HCLoader                 : 3.00.10
+    EOS
+
+
+
+# show vlan
+
+--- vlan port information ---
+                  a = access-port  t = trunk-port
+                  C Port
+                    1      8 9     16 17    24 25    32 33    40 41    48 49
+                    +------+ +------+ +------+ +------+ +------+ +------+ +---
+ Port Mode        1 taataata aaaaaaaa aaaaaaaa aaaaaaaa aaaaaaaa aaaaaaaa tata
+
+--- vlan mapping information ---
+                  St = Status  En = Enable  Dis = Disable
+                  u = untag  t = tag  p = protocol vlan  d = dynamic port vlan
+                  C Port
+                    1      8 9     16 17    24 25    32 33    40 41    48 49
+ Name     VID St    +------+ +------+ +------+ +------+ +------+ +------+ +---
+default     1 En  1 ........ .uuuuuuu uuuuuuuu uuuuuuuu uuuuuuuu uuuuuuuu .u.u
+vlan10     10 En  1 t....... ........ ........ ........ ........ ........ t.t.
+vlan11     11 En  1 t....... ........ ........ ........ ........ ........ t.t.
+vlan715   715 En  1 ........ ........ ........ ........ ........ ........ t.t.
+vlan3903 3903 En  1 ...tu... ........ ........ ........ ........ ........ t.t.
+
+--- protocol vlan information ---
+ VID  protocol   type
+---------------------
+
+SNAP nonzero OUI: Disable
+
+
+
+# show vlan | begin Name
+
+ Name     VID St    +------+ +------+ +------+ +------+ +------+ +------+ +---
+default     1 En  1 uuuuuuuu uuuuuuuu uuuuuuuu uuuuuuuu uuuuuuuu uuuuuuuu ..uu
+vlan650   650 En  1 ........ ........ ........ ........ ........ ........ ....
+vlan651   651 En  1 ........ ........ ........ ........ ........ ........ ....
+vlan1899 1899 En  1 ........ ........ ........ ........ ........ ........ tt..
+
+--- protocol vlan information ---
+ VID  protocol   type
+---------------------
+
+SNAP nonzero OUI: Disable
+
+
+
+# show mmrp-plus status
+
+VLAN Group  : 1
+  Master VLAN : 1-199,400-2499,4000-4094
+  Slave VLAN  : 200-399,2500-3999
+-------------------------------------------------------------------------------
+ Pt.    Ring  MMRP          Master VLAN    Slave VLAN    Ring name 
+ /Lag   ID    Port Mode     Port Status    Port Status             
+-------------------------------------------------------------------------------
+ L1     710   Ring Aware    Forwarding     Forwarding    ring_0710
+ L2     710   Ring Aware    Forwarding     Forwarding    ring_0710
+ L3     711   Div Slave     Blocking       Forwarding    ring_0711
+ L4     712   Div Slave     Blocking       Forwarding    ring_0712
+ 1/13   715   Div Slave     Blocking       Forwarding    ring_0715
+ 1/23   720   Div Slave     Blocking       Forwarding    ring_0720
+
+
+
+# show int status
+
+Pt.   [Description]
+    Link    Flow   Auto Advertise         Fix     Pause MDIX        Media    
+    Status  Status Neg  Spd/Dpx           Spd/Dpx                            
+---------------------------------------------------------------------------
+1/1  [rt001 Ge0/0]
+      1G/F  OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(MDI)     UTP        
+1/2  [rt101 Ge0/0]
+      1G/F  OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(MDI-X)   UTP        
+1/3  [rt201 Ge0/0]
+      1G/F  OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(MDI)     UTP        
+1/4  [rt301 Ge0]
+      1G/F  OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(MDI)     UTP        
+1/5  [rt401 Ge0/0]
+    Down    OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/6  [fw001 eth0/0]
+    Down    OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/7  [rt501 Ge0/0]
+    Down    OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/8  [rt601 Ge0/0]
+    Down    OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/9  [rt701 Gi0]
+    Down    OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/10 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/11 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/12 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/13 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/14 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/15 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/16 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/17 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/18 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/19 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/20 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/21 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/22 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/23 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/24 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/25 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/26 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/27 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/28 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/29 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/30 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/31 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/32 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/33 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/34 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/35 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/36 []            
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/37 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/38 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/39 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/40 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/41 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/42 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/43 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/44 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/45 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/46 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/47 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/48 []
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+1/49 [sw101 port1/13]
+     10G/F  OFF    OFF  1G/F               10G/F  OFF   OFF         SFP+Cu     
+1/50 []
+    Disable OFF    OFF  1G/F               10G/F  OFF   OFF         SFP-NONE   
+1/51 [sresw200 port1/51]
+     10G/F  OFF    OFF  1G/F               10G/F  OFF   OFF         SFP+Cu     
+1/52 []
+    Disable OFF    OFF  1G/F               10G/F  OFF   OFF         SFP-NONE   
+
+
+
+# show int status
+
+Pt. [Description]
+    Link    Flow   Auto Advertise         Fix     Pause MDIX        Media    
+    Status  Status Neg  Spd/Dpx           Spd/Dpx                            
+---------------------------------------------------------------------------
+  1 [sw001]
+    Down    OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+  2 [sw555]
+    100M/F  OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(MDI-X)   UTP        
+  3 [sw999]
+    100M/F  OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(MDI-X)   UTP        
+  4 [ ]
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+  5 [sw666]
+    Down    OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+  6 [sw777]
+    100M/F  OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(MDI-X)   UTP        
+  7 [sw888]
+    100M/F  OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(MDI-X)   UTP        
+  8 [ ]
+    Disable OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+  9 [sv001 eth2]
+    Down    OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+ 10 [sv002 eth2]
+    Down    OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     UTP        
+ 11 [sv003 eth2]
+      1G/F  OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(MDI)     UTP        
+
+ 25 [ ]
+    Disable                                                         SFP-NONE   
+      +---  OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     (UTP)      
+   *  +---  OFF    ON   1G/F                1G/F  OFF   OFF         (FIBER)    
+ 26 [ ]
+    Disable                                                         SFP-NONE   
+      +---  OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     (UTP)      
+   *  +---  OFF    ON   1G/F                1G/F  OFF   OFF         (FIBER)    
+ 27 [ ]
+    Disable                                                         SFP-NONE   
+      +---  OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     (UTP)      
+   *  +---  OFF    ON   1G/F                1G/F  OFF   OFF         (FIBER)    
+ 28 [ ]
+    Disable                                                         SFP-NONE   
+      +---  OFF    ON   1G/F,100M,10M     100M/H  OFF   ON(---)     (UTP)      
+   *  +---  OFF    ON   1G/F                1G/F  OFF   OFF         (FIBER)    
+
+
+
