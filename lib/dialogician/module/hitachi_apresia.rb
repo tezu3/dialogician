@@ -26,7 +26,7 @@ module Hitachi; module APRESIA
   
   
   def logout_expand(logout_param)
-    cmd("conf ter", {:error=>Dialogician::Device::PATTERN_IGNORE})
+    cmd("conf ter", {"error"=>Dialogician::Device::PATTERN_IGNORE})
     cmd("terminal no length")
     cmd("end")
     super(logout_param)
@@ -34,7 +34,7 @@ module Hitachi; module APRESIA
   
   
   def save()
-    cmd("end", {:error=>Dialogician::Device::PATTERN_IGNORE})
+    cmd("end", {"error"=>Dialogician::Device::PATTERN_IGNORE})
     cmd("write memory")
   end
   
@@ -45,7 +45,7 @@ module Hitachi; module APRESIA
   
   
   def config
-    cmd("end", {:error=>Dialogician::Device::PATTERN_IGNORE})
+    cmd("end", {"error"=>Dialogician::Device::PATTERN_IGNORE})
     return cmd("show running-config")
   end
   
@@ -57,23 +57,26 @@ module Hitachi; module APRESIA
     (running == flash)? true : false
   end
   
+  
   def system
-    cmd("end", {:error=>Dialogician::Device::PATTERN_IGNORE})
+    cmd("end", {"error"=>Dialogician::Device::PATTERN_IGNORE})
     out_system = cmd("show system")
     out_version = cmd("show version")
     
+    return nil if out_system.nil? || out_version.nil?
+    
     ret = Hash::new
     
-    # TODO: refactoring (scan reduce)
     out_version.scan(/^System Revision(\s)*: ([0-9.]+)/)
     ret["version"] =  $2
     
-    out_system.scan(/^Hardware Model(\s)*: (.*)$/)
-    ret["model"] = $2
-    
-    out_system.scan(/^Serial Number(\s)*: ([0-9]+)$/)
-    ret["serial"] = $2
-    
+    out_system.to_str().each_line do |line|
+      next if line.nil?
+      line.chomp!
+      if line =~ /^Hardware Model(\s)*: (.*)$/ then ret["model"] = $2
+      elsif line =~ /^Serial Number(\s)*: ([0-9]+)$/ then ret["serial"] = $2 end
+    end
+
     return ret
   
   end
@@ -81,7 +84,7 @@ module Hitachi; module APRESIA
   
   def mmrp_status
     # TODO: multi VLAN Group (if use)
-    cmd("end", {:error=>Dialogician::Device::PATTERN_IGNORE})
+    cmd("end", {"error"=>Dialogician::Device::PATTERN_IGNORE})
     out_mmrp = cmd("show mmrp-plus status")
     
     ret = Array::new
@@ -116,41 +119,43 @@ module Hitachi; module APRESIA
   
   
   def vlan
-    # TODO: refactoring (romove magic number)
-    cmd("end", {:error=>Dialogician::Device::PATTERN_IGNORE})
-    out_vlan = cmd("show vlan | begin Name")
-    array_block = out_vlan.split(/\n\n/)
-    return nil if array_block.size < 2
+    # TODO: multi line "Name"
+    cmd("end", {"error"=>Dialogician::Device::PATTERN_IGNORE})
+    out_vlan = cmd("show vlan")
+    
+    array_block = out_vlan.split("--- ")
+    return nil if array_block.size < 3
     
     ret = Array::new
     
-    array_block[0].each_line do |line|
+    # --- vlan mapping information
+    array_block[2].to_s.each_line do |line|
       next if line.nil?
-      array_line = line.to_s.split(/[\s|]+/)
+      line.chomp!
+      array_line = line.split(/[\s|]+/)
       next if array_line.nil? || array_line.size < 5 || array_line[0].to_s == ""
       
       hash_vlan = Hash::new
       hash_vlan["name"] = array_line[0]
       hash_vlan["id"] = array_line[1]
       hash_vlan["status"] = array_line[2]
-        
+      
       hash_vlan["switchport"] = Array::new
       (4..array_line.size - 1).each do |num|
         array_line[num].each_char do |ch|
           hash_vlan["switchport"] << ch
         end
       end
-      
       ret << hash_vlan
     end
     
     return ret
-      
+
   end
   
   
   def interface
-    cmd("end", {:error=>Dialogician::Device::PATTERN_IGNORE})
+    cmd("end", {"error"=>Dialogician::Device::PATTERN_IGNORE})
     out_interface = cmd("show int status")
     array_block = out_interface.split(/-{20,}/)
     return nil if array_block.size < 2

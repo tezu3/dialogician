@@ -63,22 +63,6 @@ SNAP nonzero OUI: Disable
 
 
 
-# show vlan | begin Name
-
- Name     VID St    +------+ +------+ +------+ +------+ +------+ +------+ +---
-default     1 En  1 uuuuuuuu uuuuuuuu uuuuuuuu uuuuuuuu uuuuuuuu uuuuuuuu ..uu
-vlan650   650 En  1 ........ ........ ........ ........ ........ ........ ....
-vlan651   651 En  1 ........ ........ ........ ........ ........ ........ ....
-vlan1899 1899 En  1 ........ ........ ........ ........ ........ ........ tt..
-
---- protocol vlan information ---
- VID  protocol   type
----------------------
-
-SNAP nonzero OUI: Disable
-
-
-
 # show mmrp-plus status
 
 VLAN Group  : 1
@@ -203,7 +187,7 @@ Pt.   [Description]
      10G/F  OFF    OFF  1G/F               10G/F  OFF   OFF         SFP+Cu     
 1/50 []
     Disable OFF    OFF  1G/F               10G/F  OFF   OFF         SFP-NONE   
-1/51 [sresw200 port1/51]
+1/51 [sw201 port1/51]
      10G/F  OFF    OFF  1G/F               10G/F  OFF   OFF         SFP+Cu     
 1/52 []
     Disable OFF    OFF  1G/F               10G/F  OFF   OFF         SFP-NONE   
