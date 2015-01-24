@@ -213,4 +213,22 @@ module Hitachi; module APRESIA
     
   end
   
+  
+  def lldp(port)
+    return nil unless port.instance_of?(String)
+    
+    cmd("end", {"error"=>Dialogician::Device::PATTERN_IGNORE})
+    out_lldp = cmd("show lldp port #{port}")
+    
+    ret = Hash::new
+    
+    out_lldp.each_line do |line|
+      array_line = line.chomp!.split(/[\s]+\:[\s]+/)
+      ret.store(array_line[0].downcase.sub("\s", "_").sub(".", ""), array_line[1]) if array_line.size == 2
+    end
+    
+    return ret
+    
+  end
+  
 end; end
