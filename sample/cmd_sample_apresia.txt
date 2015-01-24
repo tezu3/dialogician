@@ -242,3 +242,15 @@ Pt. [Description]
 
 
 
+# show lldp port 1/15
+Port               : 1/15
+Chassis ID         : 00:40:66:34:24:26
+Port ID            : port-1/49
+TTL                : 120
+Port Description   : Apresia13200-48X-PSR-10149
+System Name        : sw500
+System Description : Hitachi Cable Ethernet Switch Apresia13200-48X-PSR Ver.8.23.02
+Mgmt. Address      : 192.0.2.1
+
+
+
